@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid>
+    <form (submit)="entrar()">
+      <ion-row>
+        <ion-input [(ngModel)]="email" name="email" label="Email" labelPlacement="floating" placeholder="Email" fill="outline"></ion-input>
+      </ion-row>
+      <ion-row>
+        <ion-input type="password" [(ngModel)]="senha" name="senha" label="Senha" labelPlacement="floating" placeholder="Senha" fill="outline"></ion-input>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        @if (loading) {
+          <ion-button class="judje" size="default" disabled>
+            <ion-spinner></ion-spinner>
+          </ion-button>
+        }
+        @else {
+          <ion-button type="submit" class="judje" size="default">Entrar</ion-button>
+        }
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-button id="open-modal" class="judje" fill="outline" size="default" [disabled]="loading">Cadastrar</ion-button>
+      </ion-row>
+    </form>
+  </ion-grid>
+
+
+  <ion-modal trigger="open-modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <!-- <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancelar</ion-button>
+          </ion-buttons> -->
+          <ion-title>Cadastrar usuário</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="cancel()" [strong]="true">Voltar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-row>
+          <ion-input [(ngModel)]="nome" label="Nome" labelPlacement="floating" placeholder="Nome" fill="outline"></ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input [(ngModel)]="email" label="Email" labelPlacement="floating" placeholder="Email" fill="outline"></ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input [(ngModel)]="senha" type="password" label="Senha" labelPlacement="floating" placeholder="Senha" fill="outline">
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input [(ngModel)]="confirmarSenha" type="password" label="Confirmar senha" labelPlacement="floating" placeholder="Confirmar senha" fill="outline">
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          @if (loading) {
+            <ion-button class="judje" size="default" disabled>
+              <ion-spinner></ion-spinner>
+            </ion-button>
+          }
+          @else {
+            <ion-button class="judje" size="default" (click)="cadastrar()">Cadastrar</ion-button>
+          }
+        </ion-row>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Excluir conta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Excluir conta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-text
+        >Tem certeza que quer excluir sua conta? Essa ação é irreversível, por
+        isso, para garantir que você realmente deseja excluir sua conta, digite
+        <ion-text color="danger" class="danger">EXCLUIR</ion-text> no campo abaixo:
+      </ion-text>
+    </ion-row>
+    <form (submit)="excluirConta()">
+      <ion-row>
+        <ion-input
+          [(ngModel)]="confirmacao"
+          name="confirmacao"
+          labelPlacement="stacked"
+          label="Confirmação"
+          placeholder="EXCLUIR"
+          fill="outline"
+        >
+        </ion-input>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        @if (loading) {
+        <ion-button class="judje" size="default" disabled>
+          <ion-spinner></ion-spinner>
+        </ion-button>
+        } @else {
+        <ion-button class="judje" size="default" (click)="excluirConta()"
+          >Excluir Conta</ion-button
+        >
+        }
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
