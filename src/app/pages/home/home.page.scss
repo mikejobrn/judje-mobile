@@ -1,0 +1,23 @@
+ion-grid {
+    --ion-grid-padding: 20px;
+}
+
+ion-button.judje {
+    --border-radius: 90px;
+    --padding-start: 30px;
+    --padding-end: 30px;
+    --padding-top: 13px;
+    --padding-bottom: 13px;
+    font-weight: 700;
+    text-transform: none;
+}
+
+ion-spinner {
+    height: 15px;
+    width: 15px;
+    margin-right: 15px;
+}
+
+ion-row {
+    margin-bottom: 15px;
+}

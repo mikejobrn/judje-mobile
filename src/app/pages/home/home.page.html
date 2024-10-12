@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,12 +9,31 @@
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar color="primary">
       <ion-title size="large">Gerar base de dados</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">Busca comum</strong>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <h2>Busca comum</h2>
+    </ion-row>
+    <ion-row>
+      <ion-text>Preencha os campos do formulário abaixo</ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-select [(ngModel)]="uf" labelPlacement="stacked" label="UF" placeholder="UF" fill="outline">
+        <ion-select-option value="SP">SP</ion-select-option>
+        <ion-select-option value="RJ">RJ</ion-select-option>
+      </ion-select>
+    </ion-row>
+    <ion-row>
+      <ion-input [(ngModel)]="descritores" labelPlacement="stacked" label="Descritores" placeholder="Digite os descritores que deseja buscar" fill="outline"></ion-input>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button class="judje" size="default" [disabled]="loading" (click)="gerarBaseDados()">
+        <ion-spinner *ngIf="loading"></ion-spinner> Gerar base de dados
+      </ion-button>
+    </ion-row>
+  </ion-grid>
 </ion-content>
