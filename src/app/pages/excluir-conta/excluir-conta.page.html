@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar color="primary">
       <ion-title size="large">Excluir conta</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -34,15 +34,9 @@
         </ion-input>
       </ion-row>
       <ion-row class="ion-justify-content-center">
-        @if (loading) {
-        <ion-button class="judje" size="default" disabled>
-          <ion-spinner></ion-spinner>
+        <ion-button type="submit" class="judje" size="default" [disabled]="loading">
+          <ion-spinner *ngIf="loading"></ion-spinner> Excluir Conta
         </ion-button>
-        } @else {
-        <ion-button class="judje" size="default" (click)="excluirConta()"
-          >Excluir Conta</ion-button
-        >
-        }
       </ion-row>
     </form>
   </ion-grid>
